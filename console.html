@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Owner console for Prinita Kandasamy — bookings, content, media and automation.">
+  <title>Owner console — Prinita Kandasamy</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css?v=feel">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body class="console">
+  <header class="console-header">
+    <a class="wordmark" href="index.html">Prinita</a>
+    <nav style="display:flex; gap:1rem; align-items:center">
+      <a href="index.html">View site →</a>
+      <a href="#" data-console-logout style="opacity:0.7">Lock</a>
+    </nav>
+  </header>
+
+  <div class="console-layout">
+    <aside class="console-side" aria-label="Console navigation">
+      <p class="kicker" style="margin-bottom:0.6rem">Owner</p>
+      <nav>
+        <a href="#dashboard" data-cnav="dashboard" aria-current="page">Dashboard</a>
+        <a href="#inbox" data-cnav="inbox">Inbox <span data-inbox-badge style="float:right; background:#111; color:#fff; padding:0.1rem 0.35rem; border-radius:99px; font-size:0.7rem; min-width:1.2rem; text-align:center">0</span></a>
+        <a href="#content" data-cnav="content">Content</a>
+        <a href="#media" data-cnav="media">Media</a>
+        <a href="#automation" data-cnav="automation">Automation</a>
+        <a href="#settings" data-cnav="settings">Settings</a>
+      </nav>
+      <div style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--line)">
+        <p class="kicker">Quick</p>
+        <p style="font-size:0.84rem; color:var(--muted); margin:0.3rem 0 0.6rem">Do not share this URL. For preview only, no real email is sent.</p>
+        <a class="btn" href="contact.html" style="display:block; text-align:center">Test booking form</a>
+      </div>
+    </aside>
+
+    <main class="console-main">
+      <!-- DASHBOARD -->
+      <section id="dashboard" data-csec="dashboard">
+        <p class="kicker">Overview</p>
+        <h1 style="margin:0.2rem 0 1rem; font-family:var(--serif); font-style:italic; font-size:clamp(2.2rem,5vw,3.4rem); line-height:0.9">Owner console</h1>
+        <p class="lede" style="max-width:44rem">Everything that moves without you touching code. Bookings land here first, photos are approved here, reels are queued here. The public site never shows a draft until you flip it live.</p>
+
+        <div class="stat-grid" style="margin-top:1.2rem">
+          <div class="stat"><strong data-stat-inbox>0</strong><span>New enquiries</span><span class="fine" style="font-size:0.76rem">from /contact</span></div>
+          <div class="stat"><strong>3</strong><span>Photos live</span><span class="fine" style="font-size:0.76rem">Sunkissed · Devi or Diva · Divine</span></div>
+          <div class="stat"><strong>2</strong><span>Trailers live</span><span class="fine" style="font-size:0.76rem">isiThunzi · Echoes of the Bell</span></div>
+          <div class="stat"><strong data-stat-pending>4</strong><span>Waiting on her</span><span class="fine" style="font-size:0.76rem">headshots · reels · CV</span></div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <h2>What is automated right now</h2>
+          <div class="flow">
+            <div class="flow-step">
+              <h3>Instagram → Home</h3>
+              <p>Pull latest 3 from @prinita_kandasamy. Hold in Media until you tap Approve. Then Home updates, no deploy.</p>
+              <p class="fine" style="margin-top:0.5rem">Last pull: <span data-last-pull>never (preview uses signed CDN)</span></p>
+            </div>
+            <div class="flow-step">
+              <h3>Form → Inbox → Email</h3>
+              <p>Contact form writes to <code>localStorage: prinita-inbox</code> in preview. Live, it will POST to your booking address and BCC you.</p>
+              <p class="fine" style="margin-top:0.5rem">Auto-reply: <em>Thanks — Prinita will reply within 24h.</em></p>
+            </div>
+            <div class="flow-step">
+              <h3>Vimeo → Reels</h3>
+              <p>Paste a Vimeo link in Content → Reels. It validates, embeds, and shows only after you set it Live.</p>
+              <p class="fine" style="margin-top:0.5rem">Current: two public trailers + one Instagram reel.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INBOX -->
+      <section id="inbox" data-csec="inbox" class="card">
+        <h2>Inbox</h2>
+        <p class="fine">Bookings from the site flow here. In preview they are stored in this browser only (localStorage). Live they go to <span data-booking-email>booking@prinita.example</span> and appear here via webhook.</p>
+        <div style="display:flex; gap:0.5rem; margin:0.8rem 0 0.6rem">
+          <button class="btn" type="button" data-inbox-export>Export CSV</button>
+          <button class="btn" type="button" data-inbox-clear style="background:transparent">Clear preview data</button>
+        </div>
+        <div data-inbox-list style="margin-top:0.6rem; border-top:1px solid var(--line); padding-top:0.2rem">
+          <p class="fine">No enquiries yet. Submit the contact form to see automation.</p>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <section id="content" data-csec="content" class="card">
+        <h2>Content</h2>
+        <p class="fine">Flip Live / Draft without editing HTML. In this proof the toggles are local only.</p>
+        <div style="display:grid; gap:1rem; margin-top:0.8rem">
+          <div style="border:1px solid var(--line); padding:0.9rem">
+            <p class="kicker">Acting</p>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0; border-bottom:1px solid var(--line)"><span>isiThunzi — billed first · live now</span><input type="checkbox" checked data-live="acting-isithunzi"></label>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0"><span>Echoes of the Bell — cast · live now</span><input type="checkbox" checked data-live="acting-echoes"></label>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0"><span>Acting showreel — 60–90s (draft)</span><input type="checkbox" data-live="acting-reel"><input type="url" placeholder="Paste Vimeo link" style="flex:1; max-width:18rem; margin-left:auto"></label>
+          </div>
+          <div style="border:1px solid var(--line); padding:0.9rem">
+            <p class="kicker">Presenting</p>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0"><span>Hosting reel — under 2 min (draft)</span><input type="checkbox" data-live="presenting-reel"></label>
+            <p class="fine">Portraits: pending until she sends. No stand-in will be shown live.</p>
+          </div>
+          <div style="border:1px solid var(--line); padding:0.9rem">
+            <p class="kicker">Dance</p>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0"><span>Bharatanatyam — 3 reels (live)</span><input type="checkbox" checked></label>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0"><span>Dance Your Style — JHB qualifier (live)</span><input type="checkbox" checked></label>
+            <label style="display:flex; justify-content:space-between; gap:1rem; padding:0.5rem 0"><span>Freestyle cycle — Moose SA (live)</span><input type="checkbox" checked></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDIA -->
+      <section id="media" data-csec="media" class="card">
+        <h2>Media</h2>
+        <div style="display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:0.6rem; margin-top:0.7rem">
+          <figure style="margin:0; border:1px solid var(--line); padding:0.4rem; background:#fff">
+            <div style="aspect-ratio:4/5; background:#eee; display:grid; place-items:center; font-size:0.76rem; color:#666">Sunkissed<br><span style="font-size:0.68rem">19 Mar 2026</span></div>
+            <figcaption style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-top:0.4rem"><span class="fine">Live on Home</span><span style="font-size:0.68rem; background:#111; color:#fff; padding:0.2rem 0.4rem">Approved</span></figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--line); padding:0.4rem; background:#fff">
+            <div style="aspect-ratio:4/5; background:#eee; display:grid; place-items:center; font-size:0.76rem; color:#666">Devi or Diva<br><span style="font-size:0.68rem">4 Mar 2026</span></div>
+            <figcaption style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-top:0.4rem"><span class="fine">Live</span><span style="font-size:0.68rem; background:#111; color:#fff; padding:0.2rem 0.4rem">Approved</span></figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--line); padding:0.4rem; background:#fff">
+            <div style="aspect-ratio:4/5; background:#eee; display:grid; place-items:center; font-size:0.76rem; color:#666">Divine energy<br><span style="font-size:0.68rem">Nania</span></div>
+            <figcaption style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-top:0.4rem"><span class="fine">Live</span><span style="font-size:0.68rem; background:#111; color:#fff; padding:0.2rem 0.4rem">Approved</span></figcaption>
+          </figure>
+        </div>
+        <p class="fine" style="margin-top:0.7rem">Next pull: Instagram Graph API (approve before it hits the site). Reels pull from Vimeo on save. No code push needed.</p>
+      </section>
+
+      <!-- AUTOMATION -->
+      <section id="automation" data-csec="automation" class="card">
+        <h2>Automation flow</h2>
+        <p class="fine">How a visitor becomes a booking without you forwarding emails.</p>
+        <ol style="margin:0.6rem 0 0; padding-left:1.1rem; display:grid; gap:0.4rem; font-size:0.92rem">
+          <li><strong>Visitor → Form</strong> on /contact → writes to Inbox (preview: localStorage; live: POST + email).</li>
+          <li><strong>Inbox → Auto-reply</strong> sends <em>Thanks — Prinita will reply in 24h</em> and tags the enquiry <code>new → read → booked</code>.</li>
+          <li><strong>Booked → Calendar</strong> (owner sets link in Settings) — enquiry gets a booking link one-click.</li>
+          <li><strong>Instagram poll</strong> — daily pull from @prinita_kandasamy → Media queue → you tap Approve → Home hero updates.</li>
+          <li><strong>Vimeo save</strong> → Reels tabs update. No separate upload for each page.</li>
+          <li><strong>Press kit</strong> → one-sheet at /kit.html prints to PDF automatically — no manual layout.</li>
+        </ol>
+        <div style="margin-top:0.9rem; display:flex; gap:0.5rem; flex-wrap:wrap">
+          <span style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; background:#111; color:#fff; padding:0.3rem 0.5rem">Form → Inbox: live</span>
+          <span style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid #111; padding:0.3rem 0.5rem">IG sync: preview-only</span>
+          <span style="font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; border:1px solid #111; padding:0.3rem 0.5rem">Vimeo sync: on save</span>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="settings" data-csec="settings" class="card">
+        <h2>Settings</h2>
+        <div style="display:grid; gap:0.7rem; max-width:32rem; margin-top:0.6rem">
+          <label class="field"><span>Booking email (live will deliver here)</span><input data-setting="booking" type="email" value="booking@prinita.example"></label>
+          <label class="field"><span>Instagram handle</span><input type="text" value="@prinita_kandasamy" readonly></label>
+          <label class="field"><span>IMDb</span><input type="text" value="https://www.imdb.com/name/nm17920918/" readonly></label>
+          <label class="field"><span>Show proof banner on public site</span><select data-setting="proof"><option value="on">On — A pitch. Not the official site.</option><option value="off">Off</option></select></label>
+        </div>
+        <p class="fine" style="margin-top:0.8rem">In preview these settings are local. Live they are env vars — Prinita never edits code.</p>
+      </section>
+
+      <p class="fine">Proof console. Nothing is emailed until you point it at a real address and remove <code>noindex</code>.</p>
+    </main>
+  </div>
+
+  <script>
+  (function(){
+    var key = "prinita-inbox";
+    var listEl = document.querySelector("[data-inbox-list]");
+    var badge = document.querySelector("[data-inbox-badge]");
+    var statInbox = document.querySelector("[data-stat-inbox]");
+    var exportBtn = document.querySelector("[data-inbox-export]");
+    var clearBtn = document.querySelector("[data-inbox-clear]");
+    var bookingInput = document.querySelector('[data-setting="booking"]');
+    var bookingSpan = document.querySelector("[data-booking-email]");
+
+    function load(){
+      try {
+        var list = JSON.parse(localStorage.getItem(key) || "[]");
+        var n = list.length;
+        if (badge) badge.textContent = String(n);
+        if (statInbox) statInbox.textContent = String(n);
+        if (!list.length) {
+          if (listEl) listEl.innerHTML = '<p class="fine">No enquiries yet. Submit the contact form to see automation.</p>';
+          return;
+        }
+        if (listEl) {
+          listEl.innerHTML = list.map(function(it){
+            var d = new Date(it.at);
+            var when = d.toLocaleString();
+            return '<div class="inbox-row"><div><strong>'+escapeHtml(it.name||"—")+'</strong> · '+escapeHtml(it.email||"")+' · '+escapeHtml(it.role||"")+' → '+escapeHtml(it.interest||"")+'<br><span class="fine">'+escapeHtml(it.message||"").slice(0,120)+'</span><br><span class="fine">'+escapeHtml(when)+'</span></div><div><span style="font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; background:#111; color:#fff; padding:0.2rem 0.4rem">'+escapeHtml(it.status||"new")+'</span></div></div>';
+          }).join("");
+        }
+      } catch(e){
+        if (listEl) listEl.innerHTML = '<p class="fine">Could not read inbox.</p>';
+      }
+    }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+    load();
+    window.addEventListener("storage", load);
+    setInterval(load, 1500);
+
+    if (exportBtn) exportBtn.addEventListener("click", function(){
+      try {
+        var list = JSON.parse(localStorage.getItem(key) || "[]");
+        if (!list.length) return alert("No rows to export.");
+        var csv = ["name,email,role,interest,message,at"].concat(list.map(function(r){
+          return [r.name,r.email,r.role,r.interest,(r.message||"").replace(/\n/g," "),r.at].map(function(v){ return '"'+String(v||"").replace(/"/g,'""')+'"'; }).join(",");
+        })).join("\\n");
+        var blob = new Blob([csv], {type:"text/csv"});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url; a.download = "prinita-inbox.csv"; a.click();
+        URL.revokeObjectURL(url);
+      } catch(e){ alert("Export failed."); }
+    });
+    if (clearBtn) clearBtn.addEventListener("click", function(){
+      if (!confirm("Clear preview inbox in this browser?")) return;
+      localStorage.removeItem(key);
+      load();
+    });
+    if (bookingInput && bookingSpan) {
+      var saved = localStorage.getItem("prinita-booking-email");
+      if (saved) { bookingInput.value = saved; bookingSpan.textContent = saved; }
+      bookingInput.addEventListener("input", function(){
+        localStorage.setItem("prinita-booking-email", bookingInput.value);
+        bookingSpan.textContent = bookingInput.value || "booking@prinita.example";
+      });
+    }
+    // side nav active
+    var navs = document.querySelectorAll("[data-cnav]");
+    var secs = document.querySelectorAll("[data-csec]");
+    function onHash(){
+      var h = (location.hash||"#dashboard").replace("#","");
+      navs.forEach(function(a){
+        var is = a.getAttribute("data-cnav")===h;
+        a.setAttribute("aria-current", is ? "page" : "false");
+        a.style.fontWeight = is ? "600" : "400";
+      });
+    }
+    window.addEventListener("hashchange", onHash);
+    onHash();
+    // simple gate: if ?unlock=prinita show, else ask
+    var gate = localStorage.getItem("prinita-console-unlocked");
+    if (!gate && location.search.indexOf("unlock=")===-1) {
+      var pass = prompt("Owner console — enter preview code (hint: prinita) or Cancel to view as demo");
+      if (pass === "prinita" || pass === "Prinita") {
+        localStorage.setItem("prinita-console-unlocked","1");
+      } else if (pass !== null) {
+        // allow demo anyway
+      }
+    }
+    var logout = document.querySelector("[data-console-logout]");
+    if (logout) logout.addEventListener("click", function(e){
+      e.preventDefault();
+      localStorage.removeItem("prinita-console-unlocked");
+      alert("Locked. Reload and enter code again.");
+    });
+  })();
+  </script>
+</body>
+</html>
