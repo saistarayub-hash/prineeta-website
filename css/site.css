@@ -1114,9 +1114,25 @@ textarea {
 }
 
 .site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: clamp(2.2rem, 5vw, 3.6rem) var(--pad) 1.3rem;
   border-top: 1px solid var(--line);
 }
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('assets/motif/gold-pattern.png');
+  background-size: 400px auto;
+  background-repeat: repeat;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.site-footer > * { position: relative; z-index: 1; }
 
 .footer-grid {
   display: grid;
@@ -1960,6 +1976,18 @@ textarea {
   opacity: 0.42;
   animation: powder 16s ease-in-out infinite alternate;
 }
+.pigment::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('assets/motif/gold-pattern.png');
+  background-size: 380px auto;
+  background-repeat: repeat;
+  opacity: 0.045;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
 
 .pigment .kicker {
   position: relative;
@@ -2032,7 +2060,22 @@ textarea {
 
 .dye-stack {
   display: grid;
+  position: relative;
+  isolation: isolate;
 }
+.dye-stack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('assets/motif/gold-pattern.png');
+  background-size: 340px auto;
+  background-repeat: repeat;
+  opacity: 0.03;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.dye { position: relative; z-index: 1; }
 
 .dye {
   position: relative;
@@ -2310,6 +2353,22 @@ textarea {
 .hero-bg .tiger { width: 20%; bottom: 16%; right: 16%; opacity: 0.028; }
 .hero-bg .peacock { width: 26%; top: 20%; left: 7%; opacity: 0.032; }
 .hero-bg .monkey { width: 15%; top: 44%; right: 38%; opacity: 0.025; }
+
+.brand-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('assets/motif/gold-pattern.png');
+  background-size: 420px auto;
+  background-repeat: repeat;
+  opacity: 0.055;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.brand-hero .hero-bg { z-index: 0; }
+.brand-hero .brand-hero-inner { z-index: 1; }
+
 .brand-hero-inner {
   position: relative;
   z-index: 1;
@@ -2549,20 +2608,31 @@ textarea {
 .holi-strip span:nth-child(4){ background:#14C47A; }
 
 .south-frieze {
+  position: relative;
   background: #080607;
   border-top: 1px solid var(--gold-faint);
   border-bottom: 1px solid var(--gold-faint);
-  padding: 0.9rem var(--pad) 0.8rem;
+  padding: 1.35rem var(--pad) 1.15rem;
   text-align: center;
+  overflow: hidden;
+  isolation: isolate;
 }
+.south-frieze::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('assets/motif/gold-pattern.png');
+  background-size: 360px auto;
+  background-repeat: repeat;
+  background-position: center top;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.south-frieze > * { position: relative; z-index: 1; }
 .frieze-track {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: clamp(1.1rem, 3vw, 2.2rem);
-  max-width: 900px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  display: none;
 }
 .frieze-track figure {
   margin: 0;
@@ -2597,11 +2667,12 @@ textarea {
   color: rgba(212,175,55,0.75);
 }
 .frieze-note {
-  margin: 0.7rem 0 0;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
+  margin: 0;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(243,238,230,0.45);
+  color: rgba(212,175,55,0.88);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.65);
 }
 .gold-rule {
   display: flex;
