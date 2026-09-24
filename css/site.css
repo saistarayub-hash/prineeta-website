@@ -1952,12 +1952,12 @@ textarea {
   inset: -18%;
   z-index: -1;
   background:
-    radial-gradient(circle at 14% 74%, rgba(255,45,120,0.14), transparent 38%),
-    radial-gradient(circle at 84% 18%, rgba(255,193,7,0.12), transparent 36%),
-    radial-gradient(circle at 72% 88%, rgba(20,196,122,0.10), transparent 34%),
-    radial-gradient(circle at 38% 12%, rgba(61,107,255,0.09), transparent 32%);
-  filter: blur(34px);
-  opacity: 0.78;
+    radial-gradient(circle at 14% 74%, rgba(232,160,184,0.09), transparent 38%),
+    radial-gradient(circle at 84% 18%, rgba(214,183,90,0.08), transparent 36%),
+    radial-gradient(circle at 72% 88%, rgba(127,200,166,0.07), transparent 34%),
+    radial-gradient(circle at 38% 12%, rgba(61,107,255,0.06), transparent 32%);
+  filter: blur(28px);
+  opacity: 0.42;
   animation: powder 16s ease-in-out infinite alternate;
 }
 
@@ -1977,13 +1977,14 @@ textarea {
   letter-spacing: -0.04em;
 }
 
+.pigment h1 { text-shadow: 0 2px 18px rgba(0,0,0,0.62); }
 .pigment h1 span {
   display: block;
 }
 
-.c-pink { color: #ff4d8d; }
-.c-yellow { color: #ffc107; }
-.c-green { color: #5dffb0; }
+.c-pink { color: #E8A0B8; }
+.c-yellow { color: #D6B75A; }
+.c-green { color: #7FC8A6; }
 
 .holi-note {
   position: relative;
@@ -1996,6 +1997,7 @@ textarea {
   position: relative;
   max-width: 42rem;
   margin-top: 0.9rem;
+  padding-top: 0.2rem;
 }
 
 .pigment-facts {
@@ -2051,8 +2053,8 @@ textarea {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.04;
-  background-size: 42% auto;
+  opacity: 0.025;
+  background-size: 38% auto;
   background-repeat: no-repeat;
   background-position: 92% 18%;
   mix-blend-mode: screen;
@@ -2065,6 +2067,8 @@ textarea {
 .dye-green { border-left-color: #3A9B7A; }
 .dye-green::after { background-image: url('assets/motif/elephant-gold.png'); }
 .dye > * { position: relative; z-index: 1; }
+.dye h2, .dye .kicker, .dye > p { text-shadow: 0 1px 14px rgba(0,0,0,0.55); }
+.dye .kicker { opacity: 0.92; }
 
 .dye .kicker {
   color: var(--gold);
@@ -2085,6 +2089,51 @@ textarea {
 .dye p {
   max-width: 34rem;
   margin: 0;
+}
+
+
+/* Bharatanatyam big player — belongs on site, not a raw Instagram box */
+.dye-player {
+  margin-top: 1.1rem;
+  width: min(100%, 520px);
+  background: #0a0806;
+  border: 1px solid var(--gold-faint);
+  border-left: 2px solid var(--gold-soft);
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+.dye-player iframe {
+  display: block;
+  width: 100%;
+  height: min(78vh, 720px);
+  min-height: 540px;
+  border: 0;
+  background: #0a0806;
+}
+.dye-player .dye-player-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  background: #0f0b0d;
+  border-top: 1px solid var(--gold-faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.dye-player .dye-player-meta a {
+  color: #f7f1ea;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid currentColor;
+  text-decoration: none;
+  padding-bottom: 0.06rem;
+}
+@media (max-width: 640px) {
+  .dye-player iframe { height: min(78vh, 640px); min-height: 480px; }
 }
 
 /* solid Holi blocks removed — now dark cards with Holi left border for professional */
